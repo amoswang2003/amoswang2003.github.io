@@ -37,7 +37,12 @@ https://gweb.wra.gov.tw/HydroInfoMobile/hichart?stno=1140H099&category=rtLE&sdat
    <label for="ldate">DATE:</label>
   <input type="text" id="ldate" name="ldate" value="0"><br><br>
   
-
+  <!-- fill river ID in radio at init -->  
+  <!--
+  <input name="riverInput" type="radio" value="1140H099" checked> 思源橋<br>
+  <input name="riverInput" type="radio" value="river2"> 南勢溪<br>
+  <input name="riverInput" type="radio" value="river3"> 玉峰溪<br>
+  -->
 
   <!-- fill current time as default value -->  
   <script>
@@ -51,7 +56,11 @@ https://gweb.wra.gov.tw/HydroInfoMobile/hichart?stno=1140H099&category=rtLE&sdat
 
   <script>
   function myFunction() {
-  
+    /*
+    document.getElementById("stno").value =
+      document.querySelector('input[name="riverInput"]:checked').value;
+    */
+
     document.getElementById("sdate").value = 
             encodeURI(document.getElementById("lyear").value)+ 
             encodeURI('/')+
