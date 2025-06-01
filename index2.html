@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <HEAD>    
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+</HEAD>
+<body>
+<h1>思源橋水位查詢</h1>
+<!--
+<form action="/https://gweb.wra.gov.tw/HydroInfoMobile/hichart">
+https://gweb.wra.gov.tw/HydroInfoMobile/hichart?stno=1140H099&category=rtLE&sdate=2024%2F6%2F5&edate=2024%2F6%2F5&fbclid=IwZXh0bgNhZW0CMTAAAR0m6qaT7QywG3IlPt6vK-tqiJGH63kV7kmQ9hFiiv76zg4dn_zI0deUfg8_aem_AfxoKPId-JO3pA_AtZDBPdYSg2CdydghRWX_cKvhSHFKzItmuYCTqbH7S85k-ApvA2RCUotKXzhfYTHWa9cJrrBr
+
+ document.getElementById('"lmonth").value = d.getMonth()+1;
+  document.getElementById("ldate").value = d.getDate();
+-->
+
+<form action="https://gweb.wra.gov.tw/HydroInfoMobile/hichart" onsubmit="myFunction()">
+
+  <!-- break para 
+  stno=1140H099
+  category=rtLE
+  sdate=2024%2F6%2F5
+  edate=2024%2F6%2F5
+  fbclid=IwZXh0bgNhZW0CMTAAAR0m6qaT7QywG3IlPt6vK-tqiJGH63kV7kmQ9hFiiv76zg4dn_zI0deUfg8_aem_AfxoKPId-JO3pA_AtZDBPdYSg2CdydghRWX_cKvhSHFKzItmuYCTqbH7S85k-ApvA2RCUotKXzhfYTHWa9cJrrBr
+  -->
+  <!-- prepare data -->
+  <input type="hidden" id="stno" name="stno" value="1140H099">
+  <input type="hidden" id="category" name="category" value="rtLE">
+  <input type="hidden" id="sdate" name="sdate" value="0">
+  <input type="hidden" id="edate" name="edate" value="0">
+  <input type="hidden" id="fbclid" name="fbclid" value="IwZXh0bgNhZW0CMTAAAR0m6qaT7QywG3IlPt6vK-tqiJGH63kV7kmQ9hFiiv76zg4dn_zI0deUfg8_aem_AfxoKPId-JO3pA_AtZDBPdYSg2CdydghRWX_cKvhSHFKzItmuYCTqbH7S85k-ApvA2RCUotKXzhfYTHWa9cJrrBr">
+  
+  <!-- modify current time-->
+  <label for="lyear">YEAR:</label>
+  <input type="text" id="lyear" name="lyear" value="0">
+  <label for="lmonth">MON:</label>
+  <input type="text" id="lmonth" name="lmonth" value="0">
+   <label for="ldate">DATE:</label>
+  <input type="text" id="ldate" name="ldate" value="0"><br><br>
+  
+  <!-- fill river ID in radio at init -->  
+  <!--
+  <input name="riverInput" type="radio" value="1140H099" checked> 思源橋<br>
+  <input name="riverInput" type="radio" value="river2"> 南勢溪<br>
+  <input name="riverInput" type="radio" value="river3"> 玉峰溪<br>
+  -->
+
+  <!-- fill current time as default value -->  
+  <script>
+  const d = new Date();
+  
+  document.getElementById("lyear").value = d.getFullYear();
+  document.getElementById("lmonth").value =  d.getMonth()+1;
+  document.getElementById("ldate").value = d.getDate();
+ 
+  </script>  
+
+  <script>
+  function myFunction() {
+    /*
+    document.getElementById("stno").value =
+      document.querySelector('input[name="riverInput"]:checked').value;
+    */
+
+    document.getElementById("sdate").value = 
+            encodeURI(document.getElementById("lyear").value)+ 
+            encodeURI('/')+
+            encodeURI(document.getElementById("lmonth").value)+
+            encodeURI('/')+          
+            encodeURI(document.getElementById("ldate").value);
+  
+    document.getElementById("edate").value = 
+            encodeURI(document.getElementById("lyear").value)+ 
+            encodeURI('/')+
+            encodeURI(document.getElementById("lmonth").value)+
+            encodeURI('/')+          
+            encodeURI(document.getElementById("ldate").value);
+  }
+
+
+  </script>
+ 
+  <button type='submit' id='validate'>Submit</button>
+</form>
+<h2 id='result'></h2>
+
+</body>
+</html>
