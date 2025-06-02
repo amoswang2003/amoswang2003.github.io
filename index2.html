@@ -13,7 +13,7 @@ https://gweb.wra.gov.tw/HydroInfoMobile/hichart?stno=1140H099&category=rtLE&sdat
   document.getElementById("ldate").value = d.getDate();
 -->
 
-<form action="https://gweb.wra.gov.tw/HydroInfoMobile/hichart" onsubmit="myFunction()">
+<form name="form_name" id="form_id" action="https://gweb.wra.gov.tw/HydroInfoMobile/hichart" onsubmit="myFunction()">
 
   <!-- break para 
   stno=1140H099
@@ -74,12 +74,30 @@ https://gweb.wra.gov.tw/HydroInfoMobile/hichart?stno=1140H099&category=rtLE&sdat
             encodeURI(document.getElementById("lmonth").value)+
             encodeURI('/')+          
             encodeURI(document.getElementById("ldate").value);
+                alert("myFunction()\n");
   }
 
+  function submit_click(x) {
+  	//document.getElementById("stno").value = x;
+    alert("Name : " + x + " \n");
+    myFunction();
+    document.getElementById("form_id").submit(); // form submission
+    /*    
+    if (validation()) {
+        // Submit form with id function.
+        document.getElementById("form_id").submit(); // form submission
 
+        alert("Name : " + name + " \n" +
+            "Email : " + email + " \n" +
+            "Form Tag : <form>\n\n" +
+            "Form Submitted Successfully");
+    }            */
+　}
   </script>
  
   <button type='submit' id='validate'>Submit</button>
+  <br><br>  
+  <input type="button" name="submit_2" id="btn_tag_2" value="Submit2" onclick="submit_click('1140H131')"/>
 </form>
 <h2 id='result'></h2>
 
