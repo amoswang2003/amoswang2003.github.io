@@ -4,7 +4,7 @@
 	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
 </HEAD>
 <body>
-<h1>思源橋水位查詢</h1>
+<h1>水位查詢</h1>
 <!--
 <form action="/https://gweb.wra.gov.tw/HydroInfoMobile/hichart">
 https://gweb.wra.gov.tw/HydroInfoMobile/hichart?stno=1140H099&category=rtLE&sdate=2024%2F6%2F5&edate=2024%2F6%2F5&fbclid=IwZXh0bgNhZW0CMTAAAR0m6qaT7QywG3IlPt6vK-tqiJGH63kV7kmQ9hFiiv76zg4dn_zI0deUfg8_aem_AfxoKPId-JO3pA_AtZDBPdYSg2CdydghRWX_cKvhSHFKzItmuYCTqbH7S85k-ApvA2RCUotKXzhfYTHWa9cJrrBr
@@ -74,11 +74,11 @@ https://gweb.wra.gov.tw/HydroInfoMobile/hichart?stno=1140H099&category=rtLE&sdat
             encodeURI(document.getElementById("lmonth").value)+
             encodeURI('/')+          
             encodeURI(document.getElementById("ldate").value);
-                alert("myFunction()\n");
+    alert("sdate : " + document.getElementById("sdate").value + " \n");
   }
 
   function submit_click(x) {
-  	//document.getElementById("stno").value = x;
+    document.getElementById("stno").value = x;
     alert("Name : " + x + " \n");
     myFunction();
     document.getElementById("form_id").submit(); // form submission
@@ -94,10 +94,12 @@ https://gweb.wra.gov.tw/HydroInfoMobile/hichart?stno=1140H099&category=rtLE&sdat
     }            */
 　}
   </script>
- 
-  <button type='submit' id='validate'>Submit</button>
+  <!--
+  <button type='submit' id='validate'>Submit</button> -->
   <br><br>  
-  <input type="button" name="submit_2" id="btn_tag_2" value="Submit2" onclick="submit_click('1140H131')"/>
+  <input type="button" name="submit_2" id="btn_tag_2" value="北勢溪 思源橋 263.6" onclick="submit_click('1140H099')"/>
+  <br><br>  
+  <input type="button" name="submit_3" id="btn_tag_3" value="南勢溪 福山一號橋 345.5" onclick="submit_click('1140H131')"/>
 </form>
 <h2 id='result'></h2>
 
